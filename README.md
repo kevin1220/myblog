@@ -7,7 +7,7 @@
     - express
     - ejs
     - mongoose
-    - coroutine（co）
+    - async
 * 前段
     - Vue
     - bootstrap

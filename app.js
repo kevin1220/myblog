@@ -4,10 +4,27 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var test = require('./routes/test.js');
+var artical = require('./routes/articals.js');
+
+/***********************************链接到数据库*********************************************/
+var uri = 'mongodb://127.0.0.1/myblog';
+mongoose.connect(uri, {
+    server: {
+        poolSize: 10
+    },
+    auth: {
+        user: "tczx",
+        pass: "123456Wj"
+    }
+});
+mongoose.connection.on('error', console.error.bind(console, '连接错误:'));
+
+/***********************************链接到数据库*********************************************/
 
 var app = express();
 
@@ -26,6 +43,7 @@ app.use(require('express-promise')());
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/artical',artical);
 app.use('/test',test);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
