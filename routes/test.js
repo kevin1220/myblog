@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index',{templ:"test"});
+  res.render('index',{templ:"test",title:"接口调试工具"});
 });
 
 module.exports = router;

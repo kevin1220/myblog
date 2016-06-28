@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <%include test.ejs %>
-  </body>
+<head>
+	<title><%= title %></title>
+	<link rel="stylesheet" href="/stylesheets/style.css">
+	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//cdn.bootcss.com/vue/2.0.0-alpha.6/vue.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="/javascripts/utils.js"></script>
+</head>
+<body>
+	<%include header %>
+	<% if (templ=='test') { -%>
+		<%include test %>
+	<% } else { -%>
+	<% } -%>
+	<%include footer %>
+</body>
 </html>

@@ -1,1 +1,41 @@
-梁国冲
+<div class="container fluid body" id="app">
+	<h3>http接口调试工具</h3>
+	<hr>
+	<h5>在下面添加http请求的参数</h5>
+	<div class="form-group param-group otherParams">
+		<div class="col-md-6">
+			<input type="text" class="form-control" placeholder="请求地址" v-model="reqUrl">
+		</div>
+		<div class="col-md-2 otherParams form-group">
+			<select class="form-control" v-model="reqType">
+				<option value="GET">GET</option>
+				<option value="POST">POST</option>
+			</select>
+		</div>
+	</div>
+	<div v-for="param in params">
+		<div class="form-group param-group">
+			<div class="col-md-2">
+				<input type="text" class="form-control" placeholder="参数名" v-model="param.name">
+			</div>
+			<div class="col-md-6">
+				<input type="text" class="form-control" placeholder="参数值" v-model="param.value" @keyup.enter="addParam">
+			</div>
+			<div class="col-md-1 col-md-offset-3 addparam" @click="removeParam(param)">
+				<span class="glyphicon glyphicon-minus" ></span>
+			</div>
+		</div>	
+	</div>
+	<div class="form-group param-group">
+		<div class="col-md-1 addparam col-md-offset-11" @click="addParam">
+			<span class="glyphicon glyphicon-plus"></span>
+		</div>
+	</div>
+	<button type="button" class="btn btn-primary submit col-md-8" @click="submit">提交</button>
+	<div class="jumbotron col-md-8 blackboard" v-if="false">
+   	{{response}}
+	</div>	
+</div>
+
+<script type="text/javascript" src="/javascripts/test/app.js"></script>
+<link rel="stylesheet" href="/stylesheets/test/style.css">
